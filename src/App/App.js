@@ -1,4 +1,7 @@
 import React from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import './App.css';
 
 const wordList = [
   'aditya',
@@ -7,12 +10,13 @@ const wordList = [
   'is',
   'here',
 ];
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       words: '',
-      time: 0,
+      time: 5,
       gameOver: false,
       showWord: wordList[Math.floor(Math.random() * wordList.length)],
       gameState: 'winning',
@@ -25,14 +29,14 @@ class App extends React.Component {
 
   tick() {
     const { words, time } = this.state;
-    this.setState(prev => ({ time: prev.time + 1 }));
-    if (wordList.indexOf(words) !== -1) {
-      this.setState(() => ({ time: 0 }));
-      this.setState(() => ({ words: '', showWord: wordList[Math.floor(Math.random() * wordList.length)] }));
-    }
-    if (time === 5) {
+    if (time === 0) {
       this.setState(() => ({ gameOver: true, gameState: 'lost' }));
       return;
+    }
+    this.setState(prev => ({ time: prev.time - 1 }));
+    if (wordList.indexOf(words) !== -1) {
+      this.setState(() => ({ time: 5 }));
+      this.setState(() => ({ words: '', showWord: wordList[Math.floor(Math.random() * wordList.length)] }));
     }
     setTimeout(this.tick, 1000);
   }
@@ -43,7 +47,7 @@ class App extends React.Component {
   }
 
   reset() {
-    this.setState(() => ({ time: 0 }));
+    this.setState(() => ({ time: 5 }));
     this.setState(() => ({ gameOver: false, gameState: 'winning' }));
     this.setState(() => ({ buttonName: 'Start' }));
   }
@@ -63,15 +67,43 @@ class App extends React.Component {
       time, showWord, gameState, words, buttonName, gameOver,
     } = this.state;
     return (
-      <div className="root-container">
-        <input type="text" value={words} onChange={e => this.setState({ words: e.target.value })} />
-        <button type="button" onClick={this.buttonHandler}>
-          {buttonName}
-        </button>
-        <p>{time}</p>
-        <p>{showWord}</p>
-        <p>{gameState}</p>
-        <p>{gameOver}</p>
+      <div className="main-body">
+        <div className="container">
+          <h1>Speed Typing Game</h1>
+          <div className="input-box">
+            <input
+              id="input"
+              label="Type Words"
+              placeholder="Enter the words quickly"
+              // className="input-box"
+              value={words}
+              onChange={e => this.setState({ words: e.target.value })}
+              margin="normal"
+            />
+          </div>
+          <div>
+            <button type="button" className="btn" onClick={this.buttonHandler}>
+              <span>{buttonName}</span>
+            </button>
+          </div>
+        </div>
+        <div className="progressState">
+          <div className="circle">
+            <CircularProgress
+          // className={progress}
+              variant="static"
+              value={time * 20}
+            />
+          </div>
+          <span>{time}</span>
+          <div className="show-word">
+            <span>{showWord}</span>
+          </div>
+          <div className="show-word">
+            <span>{gameState}</span>
+          </div>
+          <p>{gameOver}</p>
+        </div>
       </div>
     );
   }

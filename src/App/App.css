@@ -1,0 +1,181 @@
+html, body {
+  font-family: sans-serif;
+  color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  margin: calc(75px + 2vh + 2vw) auto 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 60px;
+  border-radius: 120px;
+  margin: 0 auto;
+}
+
+h1 {
+  display: block;
+  margin: 0 auto 25px auto;
+  text-align: center;
+  font-size: 1.92em;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+#input {
+  font-family: 'Montserrat Alternates', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 120px;
+  border: none;
+  background: rgba(255,255,255,0);
+  padding: 0 68px 0 68px;
+  color: #FFFFFF;
+  font-size: 1.32em;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  outline: none;
+}
+
+::placeholder {
+  color: #FFFFFF;
+}
+
+.main-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 26px;
+  width: 100%;
+  height: 100%;
+  background: rgba(154,57,163,1);
+  background: -moz-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(154,57,163,1)), color-stop(100%, rgba(65,103,168,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
+  background: linear-gradient(135deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a39a3', endColorstr='#4167a8', GradientType=1 );
+}
+
+#search::-webkit-input-placeholder {color: #FFFFFF;}
+#search::-moz-placeholder {color: #FFFFFF;}
+#search:-ms-input-placeholder {color: #FFFFFF;}
+#search:-moz-placeholder {color: #FFFFFF;}
+#search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+#search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+
+.btn {
+  position: relative;
+
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #212121;
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #212121;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.progressState {
+  position: relative;
+  padding: 2%;
+  text-align: center;
+  margin: 30px auto;
+  padding: auto;
+  height: 30vh;
+  width: 42vw;
+  
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #212121;
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+
+}
+
+.circle {
+  left: 50%;
+}
+
+.show-word {
+  font-family: 'Montserrat Alternates', sans-serif;
+  position: relative;
+  text-align: center;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  color: #FFFFFF;
+  font-size: 1.32em;
+  letter-spacing: -0.015em;
+  padding-top: 3%;
+}
