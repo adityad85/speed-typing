@@ -2,6 +2,12 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './App.css';
+import Button from '../StyledComponents/Button/Button';
+import InputWrapper from '../StyledComponents/InputWrapper/InputWrapper';
+import Heading from '../StyledComponents/Heading/Heading';
+import InputBox from '../StyledComponents/InputBox/InputBox';
+import ProgressState from '../StyledComponents/ProgressState/ProgressState';
+import ShowWord from '../StyledComponents/ShowWord/ShowWord';
 
 const wordList = [
   'aditya',
@@ -69,41 +75,34 @@ class App extends React.Component {
     return (
       <div className="main-body">
         <div className="container">
-          <h1>Speed Typing Game</h1>
-          <div className="input-box">
-            <input
-              id="input"
-              label="Type Words"
+          <Heading>Speed Typing Game</Heading>
+          <InputWrapper>
+            <InputBox
               placeholder="Enter the words quickly"
-              // className="input-box"
               value={words}
               onChange={e => this.setState({ words: e.target.value })}
-              margin="normal"
             />
-          </div>
-          <div>
-            <button type="button" className="btn" onClick={this.buttonHandler}>
-              <span>{buttonName}</span>
-            </button>
-          </div>
+          </InputWrapper>
+          <Button onClick={this.buttonHandler}>
+            <span>{buttonName}</span>
+          </Button>
         </div>
-        <div className="progressState">
+        <ProgressState>
           <div className="circle">
             <CircularProgress
-          // className={progress}
               variant="static"
               value={time * 20}
             />
           </div>
           <span>{time}</span>
-          <div className="show-word">
+          <ShowWord>
             <span>{showWord}</span>
-          </div>
-          <div className="show-word">
+          </ShowWord>
+          <ShowWord>
             <span>{gameState}</span>
-          </div>
+          </ShowWord>
           <p>{gameOver}</p>
-        </div>
+        </ProgressState>
       </div>
     );
   }
