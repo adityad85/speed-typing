@@ -1,21 +1,12 @@
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './App.css';
 import Button from '../StyledComponents/Button/Button';
 import InputWrapper from '../StyledComponents/InputWrapper/InputWrapper';
 import Heading from '../StyledComponents/Heading/Heading';
 import InputBox from '../StyledComponents/InputBox/InputBox';
-import ProgressState from '../StyledComponents/ProgressState/ProgressState';
-import ShowWord from '../StyledComponents/ShowWord/ShowWord';
-
-const wordList = [
-  'aditya',
-  'kumar',
-  'khare',
-  'is',
-  'here',
-];
+import ProgressBox from '../components/ProgressBox/ProgressBox';
+import { wordList } from '../constants/constants';
 
 class App extends React.Component {
   constructor(props) {
@@ -60,7 +51,6 @@ class App extends React.Component {
 
   buttonHandler() {
     const { buttonName } = this.state;
-    console.log(buttonName);
     if (buttonName === 'Start') {
       this.start();
     } else {
@@ -87,22 +77,7 @@ class App extends React.Component {
             <span>{buttonName}</span>
           </Button>
         </div>
-        <ProgressState>
-          <div className="circle">
-            <CircularProgress
-              variant="static"
-              value={time * 20}
-            />
-          </div>
-          <span>{time}</span>
-          <ShowWord>
-            <span>{showWord}</span>
-          </ShowWord>
-          <ShowWord>
-            <span>{gameState}</span>
-          </ShowWord>
-          <p>{gameOver}</p>
-        </ProgressState>
+        <ProgressBox time={time} showWord={showWord} gameState={gameState} gameOver={gameOver} />
       </div>
     );
   }
